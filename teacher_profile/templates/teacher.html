@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teacher Profile</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'teacher_info/css/teachers.css' %}" />
+        <style>
+            body {
+                background-image: url("{% static 'teacher_info/image/background3.jpg' %}");
+            }
+
+            @media (max-width:768px) {
+                .profile-container {
+                    max-width: 700px;
+                    margin-left: 0px;
+                    background-color: transparent;
+                    border-left: 2.5px solid white;
+                    border-right:2.5px solid white ;
+                }
+
+
+                .profile-image {
+                    width: 120px;
+                    height: 120px;
+                }
+
+                .profile-name {
+                    font-size: 1.5em;
+                    color:lavenderblush;
+                }
+
+
+                .profile-details {
+                    line-height: 1.5;
+                }
+
+
+                .profile-details h2 {
+                    font-size: medium;
+                    color: #bdc5cd;
+                    font-weight: 700;
+                }
+
+                .profile-details h3 {
+                    font-size: small
+                }
+
+                p,
+                li {
+                    font-size: smaller;
+                    color: powderblue;
+                    font-weight: bolder;
+                }
+
+                .home-button {
+                    padding: 5px 10px;
+                    margin-top: 10px;
+                    font-size: 10px;
+                    color: #000;
+                }
+
+
+
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="profile-container">
+            <div class="profile-header">
+                {% if data %}
+                {% for e in data %}
+                <img src="{{ e.image.url }}" alt="Teacher's Picture" class="profile-image">
+                <h1 class="profile-name">{{ e.name }}</h1>
+            </div>
+            <div class="profile-details">
+                <h2>About professor {{e.name}}</h2>
+                <p>{{ e.about }}</p>
+
+                <h2>Designation</h2>
+                <p><strong>{{ e.Designation }}</strong></p>
+
+                <h2>Subject</h2>
+                <p><strong>{{ e.subject }}</strong></p>
+
+                <h2>Education Qualification</h2>
+                <p><strong>{{ e.education }}</strong></p>
+
+                <h2>Teaching/Research Experience</h2>
+
+                <p><strong>{{ e.exp }}</strong></p>
+                {% endfor %}
+                {% else %}
+                <p>No record found</p>
+                {% endif %}
+                <a href="{% url 'pro' %}">
+                    <button class="home-button">
+                        <h1>HOME</h1>
+                    </button>
+                </a>
+            </div>
+        </div>
+
+    </body>
+
+</html>

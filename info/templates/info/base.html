@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="College Management System - Manage attendance, marks, and timetables easily.">
+    <meta name="author" content="Your Name">
+    <meta name="keywords" content="College Management, Student Portal, Teacher Portal, Attendance, Marks">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#343a40">
+    <meta property="og:title" content="College Management System">
+    <meta property="og:description" content="A user-friendly system to manage student and teacher activities efficiently.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="yourwebsite.com">
+    <meta property="og:image" content="yourwebsite.com/static/img/logo.png">
+
+    <title>{% block title %}College Management System{% endblock %}</title>
+    {% load static %}
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'info/bootstrap/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'info/bootstrap/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'info/bootstrap/vendor/datatables/dataTables.bootstrap4.css' %}" rel="stylesheet">
+    <link href="{% static 'info/bootstrap/css/sb-admin.css' %}" rel="stylesheet">
+
+    {% block css %}{% endblock %}
+
+    <style>
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1rem;
+            }
+            .sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <a class="navbar-brand mr-1" href="{% url 'index' %}">College Management System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    {% if request.user.is_student %}
+                        <a class="nav-link text-capitalize">{{ request.user.student.name }}</a>
+                    {% elif request.user.is_teacher %}
+                        <a class="nav-link text-capitalize">{{ request.user.teacher.name }}</a>
+                    {% endif %}
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="wrapper">
+        <ul class="sidebar navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}"><span>Home</span></a>
+            </li>
+            {% if request.user.is_student %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'attendance' request.user.student.USN %}"><span>Attendance</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'marks_list' request.user.student.USN %}"><span>Marks</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'timetable' request.user.student.class_id_id %}"><span>Time Table</span></a>
+                </li>
+            {% elif request.user.is_teacher %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 't_clas' request.user.teacher.id 1 %}"><span>Attendance</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 't_clas' request.user.teacher.id 2 %}"><span>Marks</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 't_timetable' request.user.teacher.id %}"><span>Time Table</span></a>
+                </li>
+            {% endif %}
+        </ul>
+
+        <div id="content-wrapper">
+            <div class="container-fluid">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'info/bootstrap/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'info/bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'info/bootstrap/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'info/bootstrap/js/sb-admin.min.js' %}"></script>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

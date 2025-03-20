@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCA</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #fffcf5;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Logo Container (Aligned to Left) */
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container img {
+            width: 80px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .logo-container h3 {
+            font-size: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #000;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Centered Super Container */
+        .super-container {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 50%;
+            max-width: 500px;
+        }
+
+        /* Button Styling */
+        .button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff7eb3, #ff758c);
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 15px 40px;
+            margin: 15px;
+            border-radius: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .button:hover {
+            background: linear-gradient(45deg, #ff758c, #ff7eb3);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Keyframes for Fade In Effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .super-container {
+                width: 80%;
+                padding: 30px;
+            }
+
+            .logo-container h3 {
+                font-size: 24px;
+            }
+
+            .logo-container img {
+                width: 60px;
+            }
+
+            .logo-container {
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIS6piDMB5mxxkNN1ILo4YO9LUjLKoFYprow&s" alt="BCA Logo">
+        <h3>Banarsidas Chandiwala Institute Of Information Technology!!  (BCIIT)</h3>
+    </div>
+    <div class="super-container">
+        <div class="button-container">
+            <a href="{% url 'student' %}" class="button">BCA 1st Year</a>
+            <a href="{% url 'student2' %}" class="button">BCA 2nd Year</a>
+            <a href="{% url 'student3' %}" class="button">BCA 3rd Year</a>
+        </div>
+    </div>
+</body>
+</html>

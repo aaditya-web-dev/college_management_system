@@ -1,0 +1,88 @@
+/* login_error.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #03182b,#4facfe,#5896cc, #03182b );
+    color: #fff;
+    overflow: hidden;
+    animation: gradient 5s ease infinite;
+}
+
+.container {
+    text-align: center;
+}
+
+.error-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 80px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.6s ease-out;
+}
+
+.error-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #ffeb3b;
+    text-shadow: 10px 3px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.error-message {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    color: #fdd835;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.retry-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #ff4081;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(255, 64, 129, 0.4);
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.retry-button:hover {
+    background-color: #f44336;
+    box-shadow: 0 8px 20px rgba(244, 67, 54, 0.5);
+    transform: scale(1.05);
+}
+
+.retry-button:active {
+    transform: scale(0.98);
+    box-shadow: 0 3px 10px rgba(244, 67, 54, 0.3);
+}
+
+/* Background Gradient Animation */
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Error Box Slide-in Animation */
+@keyframes slideIn {
+    0% { transform: translateY(-100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Fade-in Text Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

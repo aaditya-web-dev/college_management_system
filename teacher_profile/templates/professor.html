@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'teacher_info/css/proff.css' %}" />
+    <title>professor</title>
+    <style>
+      @media (max-width: 768px) {
+        .wrapper{
+          align-items: normal;
+          justify-content: space-evenly;
+        }
+        .container img {
+          width: 100%;
+        }
+
+        .container h1 {
+          text-align: center;
+          margin-bottom: 30px;
+          font-size: 2.0rem;
+        }
+
+        .card {
+          background-color: white;
+          padding: 30px 30px 0px 30px;
+          width: min-content;
+          margin: 8px;
+          border-radius: 10px;
+          border: 2px solid #c3c6ce;
+        }
+
+        .profile-img {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          overflow: hidden;
+          margin: auto;
+        }
+
+        .profile-img img {
+          height: 100%;
+          width: 100%;
+        }
+
+        .content {
+          text-align: center;
+
+        }
+
+        .content h3 {
+          font-size: 1.0rem;
+          margin-top: 20px;
+          color: rgba(0, 0, 0, 9);
+        }
+
+        .content p {
+          color: rgba(0, 0, 0, 0.7);
+          letter-spacing: 1px;
+          margin: 0;
+          font-size: medium;
+          font-weight: 500;
+        }
+
+      }
+
+      /* Responsive design for mobile devices */
+      @media (max-width: 480px) {
+        .wrapper{
+          align-items: normal;
+          justify-content: space-evenly;
+          gap: 10px;
+        }
+        .container img {
+          width: 100%;
+        }
+
+        .container h1 {
+          text-align: center;
+          margin-bottom: 20px;
+          font-size: 1.0rem;
+        }
+
+        .container h1 a{
+          display: none;
+        }
+
+        .card {
+          background-color: white;
+          padding: 20px 20px 0px 20px;
+          width: min-content;
+          margin: 4px;
+          border-radius: 10px;
+          border: 2px solid #c3c6ce;
+
+        }
+
+        .profile-img {
+          width: 90px;
+          height: 90px;
+          border-radius: 50%;
+          overflow: hidden;
+          margin: auto;
+        }
+
+        .profile-img img {
+          height: 100%;
+          width: 100%;
+        }
+
+        .content {
+          text-align: center;
+
+        }
+
+        .content h3 {
+          font-size: 0.8rem;
+          margin-top: 10px;
+          color: rgba(0, 0, 0, 9);
+        }
+
+        .content p {
+          color: rgba(0, 0, 0, 0.7);
+          letter-spacing: 0px;
+          margin: 0;
+          font-size: small;
+          font-weight: 100;
+        }
+      }
+
+      @media (max-width: 300px) {
+        
+        .card {
+          background-color: white;
+          padding: 20px 20px 0px 20px;
+          width: min-content;
+          margin: 4px;
+          border-radius: 10px;
+          border: 2px solid #c3c6ce;
+          width: 128px;
+          height: 204px;
+        }
+
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container" style="text-align: center;">
+      <img src="https://www.bciit.ac.in/images/logo/logo.png" width="80%">
+      <h1>Faculty Profile <span style="font-size: large;"><a href="{% url 'home'%}">GO BACK</a></span></h1>
+
+      <div class="card" style="margin-left:40% ;  margin-bottom: 50px;margin-top: 50px;">
+        <div class="profile-img"><img src="{% static 'teacher_info/image/Director.jpg' %}" /></div>
+        <div class="content">
+          <h3>Dr. Ravish Saggar</h3>
+          <p>Director Of BCIIT</p><br>
+          <a class="card-button" href="{% url 'teacher' 2 %}">More info</a>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="card">
+          <div class="profile-img"><img src="{% static 'teacher_info/image/aloksir.jpg' %}" /></div>
+          <div class="content">
+            <h3>Mr. alok mishra</h3>
+            <p>assistant professor</p><br>
+            <a class="card-button" href="{% url 'teacher' 1 %}">More info</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="profile-img"><img src="{% static 'teacher_info/image/at.jpg' %}" /></div>
+          <div class="content">
+            <h3>Dr. anu taneja</h3>
+            <p>assistant professor</p><br>
+            <a class="card-button" href="{% url 'teacher' 3 %}">More info</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="profile-img"><img src="{% static 'teacher_info/image/mansim.jpg' %}" alt="error" /></div>
+          <div class="content">
+            <h3>Ms. mansi vats</h3>
+            <p>assistant professor</p><br>
+            <a class="card-button" href="{% url 'teacher' 4 %}">More Info</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="profile-img"><img src="{% static 'teacher_info/image/pdp.jpg' %}" /></div>
+          <div class="content">
+            <h3>Ms. Sanjana Gulia</h3>
+            <p>assistant professor</p><br>
+            <a class="card-button" href="{% url 'teacher' 5 %}">More Info</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="profile-img"><img src="{% static 'teacher_info/image/datascience.jpg' %}" /></div>
+          <div class="content">
+            <h3>Dr Shobha Chawla</h3>
+            <p>assistant professor</p><br>
+            <a class="card-button" href="{% url 'teacher' 6 %}">More Info</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="profile-img"><img src="{% static 'teacher_info/image/python.jpg' %}" /></div>
+          <div class="content">
+            <h3>Ms. smriti sharma</h3>
+            <p>assistant professor</p><br>
+            <a class="card-button" href="{% url 'teacher' 7 %}">More Info</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="profile-img"><img src="{% static 'teacher_info/image/java.png' %}" /></div>
+          <div class="content">
+            <h3>Mr. meetender</h3>
+            <p>assistant professor</p><br>
+            <a class="card-button" href="{% url 'teacher' 8 %}">More Info</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="profile-img"><img src="{% static 'teacher_info/image/Keshavji.jpeg' %}" /></div>
+          <div class="content">
+            <h3>Keshav kaushik</h3>
+            <p>assistant professor</p><br>
+            <a class="card-button" href="{% url 'teacher' 9 %}">More Info</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="profile-img"><img src="{% static 'teacher_info/image/php.jpg' %}" /></div>
+          <div class="content">
+            <h3>Mr Akshit Thakur</h3>
+            <p>assistant professor</p><br>
+            <a class="card-button" href="{% url 'teacher' 10 %}">More Info</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="profile-img"><img src="{% static 'teacher_info/image/sb.jpg' %}" /></div>
+          <div class="content">
+            <h3>Ms. Sonia Batra</h3>
+            <p>assistant professor</p><br>
+            <a class="card-button" href="{% url 'teacher' 11 %}">More Info</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="profile-img"><img src="{% static 'teacher_info/image/sj.png' %}" /></div>
+          <div class="content">
+            <h3>Mr. Sandeep Jain</h3>
+            <p>assistant professor</p><br>
+            <a class="card-button" href="{% url 'teacher' 12 %}">More Info</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="profile-img"><img src="{% static 'teacher_info/image/g.jpg' %}" /></div>
+          <div class="content">
+            <h3>Ms Gomathy M</h3>
+            <p>assistant professor</p><br>
+            <a class="card-button" href="{% url 'teacher' 13 %}">More Info</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="profile-img"><img src="{% static 'teacher_info/image/dbms.jpg' %}" /></div>
+          <div class="content">
+            <h3>Ms. Preeti Sharma</h3>
+            <p>assistant professor</p><br>
+            <a class="card-button" href="{% url 'teacher' 14 %}">More Info</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="profile-img"><img src="{% static 'teacher_info/image/cg.jpg' %}" /></div>
+          <div class="content">
+            <h3>Ms. Pallavi Bhatt</h3>
+            <p>assistant professor</p><br>
+            <a class="card-button" href="{% url 'teacher' 15 %}">More Info</a>
+          </div>
+        </div>
+
+        
+        <div class="card">
+          <div class="profile-img"><img src="{% static 'teacher_info/image/Kritika.jpeg' %}" /></div>
+          <div class="content">
+            <h3>Ms. Kritika P</h3>
+            <p>assistant professor</p><br>
+            <a class="card-button" href="{% url 'teacher' 16 %}">More Info</a>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </body>
+
+</html>

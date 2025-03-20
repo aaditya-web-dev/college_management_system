@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <title>College</title>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home1.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive3.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" -
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/6.6.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-...your-integrity-hash-here..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      /* Default size for larger screens */
+      .navbar-logo {
+        height: 50px;
+      }
+      .navbar-toggler-custom {
+        font-size: 1.5rem;
+      }
+      .navbar-toggler-icon {
+        transform: scale(1.5);
+      }
+    
+      /* Responsive adjustments for smaller screens */
+      @media (max-width: 768px) {
+        .navbar-logo {
+          height: 40px; /* Smaller logo for tablets */
+        }
+        .navbar-toggler-custom {
+          font-size: 1.2rem; /* Smaller button for tablets */
+        }
+        .navbar-toggler-icon {
+          transform: scale(1.2);
+        }
+      }
+    
+      @media (max-width: 576px) {
+        .navbar-logo {
+          height: 30px; /* Smallest logo for mobile */
+        }
+        .navbar-toggler-custom {
+          font-size: 1rem; /* Smallest button for mobile */
+        }
+        .navbar-toggler-icon {
+          transform: scale(1);
+        }
+      }
+
+      
+    </style>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light" style="position: fixed; width: 100%; z-index: 1000;">
+      <!-- Logo (aligned to the left) -->
+      <img src="{% static 'image/bciit.png' %}" alt="Logo" class="navbar-logo">
+    
+      <!-- Toggler Button (aligned to the right for small and medium screens) -->
+      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler-custom">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#notice">Notice Board</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gallery">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    
+
+    <div class="news">
+      <div class="container" id="container">
+        <b> NEWS : </b>
+        <marquee><a href="https://www.bciit.ac.in/admin/img/short_news/20Feb23_105611.pdf">GGSIPU Notification for UG
+            Programme - BCA Admissions for 2024-25 through GGSIPU-CET and CUET and MCA Admissions for 2024-25 through
+            NIMCET, GGSIPU-CET and CUETClick for GGSIPU Notification Import</a>
+        </marquee>
+      </div>
+    </div>
+
+    <div class="jumbotron">
+      <div class="main">
+        <div>
+          <img src="{% static 'image/student4.webp' %}" alt="student" height="160px" width="200px">
+        </div>
+        <a href="{% url 'bca' %}" class="btn btn-primary btn-lg" role="button">Student Info</a>
+      </div>
+      <div class="main">
+        <div>
+          <img src="{% static 'image/login.png' %}" alt="LOGIN" height="160px" width="150px">
+        </div>
+        <a href="/login/" class="btn btn-primary btn-lg" role="button">LOGIN</a>
+      </div>
+      <div class="main">
+        <div>
+          <img src="{% static 'image/teacher.png' %}" alt="staff" height="160px" width="160px">
+        </div>
+        <a href="{% url 'pro' %}" class="btn btn-primary btn-lg" role="button">Teacher Info</a>
+      </div>
+      <!-- <a class="btn btn-primary btn-lg" href="{% url 'pro' %}" role="button">GET TEACHERS
+        DETAILS</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <a class="btn btn-primary btn-lg" href="/login/" role="button"><img height="25px"
+          src="{% static 'image/login.png' %}"> LOGIN</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <a class="btn btn-primary btn-lg" href="#" role="button">GET FEEDBACK FORM</a>&nbsp&nbsp&nbsp -->
+    </div>
+
+    <!-----SLIDER SECTION----->
+    <div class="wrapper" id="wrapper">
+      <marquee scrollamount="15" behavior="alternate" onmouseout="start()" onmouseover="stop()">
+        <img src="{% static 'image/cllg.jpeg' %}">
+        <img src="{% static 'image/e2.png' %}">
+        <img src="{% static 'image/e7.png' %}">
+        <img src="{% static 'image/troppy.jpeg' %}">
+        <img src="{% static 'image/e3.png' %}">
+        <img src="{% static 'image/e4.png' %}">
+        <img src="{% static 'image/e5.png' %}">
+        <img src="{% static 'image/e6.png' %}">
+      </marquee>
+    </div>
+
+    <!----END SLIDER SECTION----->
+
+    <div id="notice" class="main-section" style="background:#f0f3fa">
+      <div class="container">
+        <!-----CAMPUS NEWS SECTION----->
+        <div class="event">
+          <h2 class="heading">College holiday Calender</h2>
+          <div>
+            <div class="list">
+              <ul>
+                <li>
+                  <span class="event-date">12 <br> OCT </span><span class="date-heading">Dussehra</span>
+                </li>
+                <li>
+                  <span class="event-date">31 <br> OCT </span><span class="date-heading">Diwali</span>
+                </li>
+                <li>
+                  <span class="event-date">25 <br> DEC </span><span class="date-heading">Chrishmas</span>
+                </li>
+                <li>
+                  <span class="event-date">26 <br> Jan </span><span class="date-heading">Republic day</span>
+                </li>
+                <li>
+                  <span class="event-date">31 <br> Marc </span><span class="date-heading">Holi</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!----CAMPUS NEWS SECTION----->
+        <div class="event">
+          <h2 class="heading">Upcoming College Event</h2>
+          <div>
+            <marquee direction="up" scrollamount="5" style="height:340px;">
+              <ul>
+                <li>
+                  <i>24-Dec-2024 :</i> ...Chrishmas Celebration
+                </li>
+                <li>
+                  <i>31-Dec-2024 :</i> ...new year Celebration
+                </li>
+                <li>
+                  <i>06-jan-2024 :</i> ...1st year Freshers
+                </li>
+                <li>
+                  <i>25-Jan-2025 :</i> ...Republic day Celebration
+                </li>
+                <li>
+                  <i>29-MAR-2025 :</i> ...Holi Celebration
+                </li>
+                <li>
+                  <i>10-apr-2024 :</i> ...farewall party
+                </li>
+              </ul>
+            </marquee>
+          </div>
+        </div>
+
+        <!------EVENT SECTION------>
+        <div class="event">
+          <h2 class="heading">College Event Calender</h2>
+          <div>
+            <ul>
+              <li>
+                <span class="event-date">11 <br> Oct </span> International Conference on "Advances in Computing
+                Communication and Intelligent Systems BCIIT
+              </li>
+              <li>
+                <span class="event-date">19 <br> Oct </span>5 Days Online FDP on " Applications of Generative AI in
+                Teaching and Research" BCIIT
+
+              </li>
+              <li>
+                <span class="event-date">21 <br> Oct </span> Motivational Session - "My Story : Motivational Session by
+                Successful Innovators"
+
+              </li>
+              <li>
+                <span class="event-date">17 <br> Nov</span>International Women's Day and SBSSTS Founders Day Celebration
+                - Utsav'24 BCIIT
+              </li>
+              <li>
+                <span class="event-date">31 <br> Nov </span> Tech-O-Fun 2k23 - TEKKEN 7 GAMING CHALLENGE
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-----ABOUT US SECTION------>
+    <div class="main-section" id="about" style="background-color: white;">
+      <div class="container about-us">
+        <div class="in-about">
+          <h4 class="subhead">Our Institue</h4>
+          <h2 class="heading">About College</h2>
+          <p>WELCOME TO BCIIT Banarsidas Chandiwala Institute of Information Technology (BCIIT) was established in 1999
+            to run Master of Computer Application (MCA) programme. </p>
+          <p>The Institute is affiliated with Guru Gobind Singh
+            Indraprastha University( GGSIPU), Delhi for awarding the degree and is approved by the All India Council of
+            Technical Education (AICTE), Ministry of HRD, Government of India. </p>
+          <p>The Institute is established under the
+            aegis of Sri Banarsidas Chandiwala Sewa Smarak Trust Society(SBCSSTS), a charitable Society working in the
+            field of health and education since 1952.</p>
+          <a href="#">Home</a>
+        </div>
+        <img src="{% static 'image/campusbciit.jpg' %}">
+      </div>
+    </div>
+
+
+    <!------GALLERY SECTION ------>
+    <div class="main-section gallery" id="gallery" style="background:#f0f3fa;">
+      <div class="container">
+        <h4 class="subhead">Batch (2023-24)</h4>
+        <h2 class="heading">collage events</h2>
+        <span class="gallery_photo">
+          <img src="{% static 'image/gallery3.jpeg' %}">
+          <img src="{% static 'image/gallery4.jpeg' %}">
+          <img src="{% static 'image/gallery5.jpeg' %}">
+          <img src="{% static 'image/gallery8.png' %}">
+          <img src="{% static 'image/gallery7.png' %}">
+          <img src="{% static 'image/gallery6.jpeg' %}">
+        </span>
+      </div>
+    </div>
+
+
+    <!-------FEES SECTION ------->
+    <div class="main-section" id="fee" style="background-color:white;">
+      <table>
+        <caption style="caption-side: top;">BCA FEES STRUCTURE</caption>
+        <thead>
+          <tr>
+            <th>Programme</th>
+            <th>BCA Batch 2024-28</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="trow">
+            <td>Tuition Fee</td>
+            <td>₹ 81,500/-</td>
+          </tr>
+          <tr class="trow">
+            <td>University Fee</td>
+            <td>₹ 20,000/-</td>
+          </tr>
+          <tr class="trow">
+            <td>Alumni Contribution Fund (One Time Non-Refundable)</td>
+            <td>₹ 2,000/-</td>
+          </tr>
+          <tr class="trow">
+            <td>*One time refundable security Deposit payable at the time of admission</td>
+            <td>₹ 10,000/-</td>
+          </tr>
+          <tr class="trow">
+            <td>Total Amount Per Year</td>
+            <td>₹ 1,13,500/-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+
+    <!---FOOTER SECTION--->
+    <div class="footer" >
+      <div class="main-section">
+        <div class="container about-us">
+          <div class="in-footer">
+            <h2 class="heading">BCIIT</h2>
+            <p>Banarsidas Chandiwala Institute of Information Technology (BCIIT) was established in 1999 to run Master
+              of Computer Application (MCA) programme. The Institute is affiliated with Guru Gobind Singh Indraprastha
+              University, Delhi for awarding the degree and is approved by the All India Council of Technical Education
+              (AICTE), Ministry of HRD, Government of India. </p><br>
+            <h2 class="heading" style="text-align: center;">GET IN TOUGH</h2>
+
+            <div class="footer-sect">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+              </svg>
+              <h4> Chandiwala Estate, Maa Anandmai Marg, Kalkaji, New Delhi-110019</h4>
+            </div>
+            <div class="footer-sect"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-telephone-inbound" viewBox="0 0 16 16">
+                <path
+                  d="M15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0m-12.2 1.182a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+              </svg>
+              <h4> + 91-11-49020144</h4>
+            </div>
+            <div class="footer-sect">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-envelope-at-fill" viewBox="0 0 16 16">
+                <path
+                  d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671" />
+                <path
+                  d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791" />
+              </svg>
+              <h4>director@bciit.ac.in</h4>
+            </div>
+          </div>
+
+          <div class="contact-form" id="contact">
+            <span class="heading">Contact Us</span>
+            <form action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="11697847-d682-4e53-a997-bab87d33c362">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required="">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required="">
+              <label for="message">Message:</label>
+              <textarea id="message" name="message" required=""></textarea>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <div class="footer-sect1">
+        <a href="https://www.facebook.com/bciitDELHI">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook"
+            viewBox="0 0 16 16">
+            <path
+              d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/bciit/">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram"
+            viewBox="0 0 16 16">
+            <path
+              d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+          </svg>
+        </a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter"
+          viewBox="0 0 16 16">
+          <path
+            d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots-fill"
+          viewBox="0 0 16 16">
+          <path
+            d="M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7M5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0m4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+        </svg>
+      </div>
+
+      <!-- <div class="footer-sect1">
+        <a href="#">Home</a>
+        <a href="#about">About us</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#notice">Notice Board</a>
+      </div> -->
+    </div>
+
+    <div class="copy-right-sec"><i class="fa-solid fa-copyright"></i>
+      Developed By <a
+        href="https://www.linkedin.com/in/aaditya-pandey-124347290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ">Aaditya
+        Pandey</a>
+    </div>
+
+
+  </body>
+
+</html>

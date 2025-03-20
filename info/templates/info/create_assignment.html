@@ -1,0 +1,161 @@
+{% extends 'info/base.html' %}
+<title>Create Assignment</title>
+
+{% block css %}
+
+<style>
+
+    /* Background styling related to assignments */
+    body {
+        background: url('https://i.pinimg.com/originals/0c/ea/6f/0cea6fabe4d9d5256e0d1b2474927732.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+    }
+
+    /* Center the form */
+    .container {
+        max-width: 500px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        margin: auto;
+        margin-top: 50px;
+    }
+
+    /* Heading with gradient effect */
+    h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: linear-gradient(45deg, #ff6b6b, #ffcc5c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 10px rgba(255, 102, 102, 0.4);
+        margin-bottom: 40px;
+    }
+
+    /* Form styling */
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    /* Label styling */
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    textarea {
+        height: 120px;
+        resize: vertical;
+    }
+
+    label {
+        background-color: #ffcc5c;
+        /* Soft yellow background */
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        color: #333;
+        width: fit-content;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    /* Input field styling */
+    input,
+    select,
+    textarea {
+        width: 300px;
+        /* Set fixed width */
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 1rem;
+        align-self: flex-end;
+        /* Aligns input fields to the right */
+        text-align: right;
+    }
+
+    /* Placeholder text color */
+    input::placeholder,
+    textarea::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Submit button styling */
+    button {
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: all 0.3s ease-in-out;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: #48c774;
+        border: none;
+        color: white;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    button:hover {
+        background: #36a269;
+        transform: scale(1.05);
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .container {
+            width: 90%;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            text-align: left;
+        }
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1>📝 </h1><h2>Assignment</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title" value="{{ form.title.value }}" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea name="description" class="form-control">{{ form.description.value }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="due_date">Due Date</label>
+            <input type="date" name="due_date" value="{{ form.due_date.value }}" class="form-control" />
+        </div>
+        <button type="submit">Create Assignment</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Design by foolishdeveloper.com -->
+    <title>Login Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 95vh;
+            margin: 0;
+            background: #F8F9FD;
+        }
+
+        .container {
+            max-width: 350px;
+            width: 90%;
+            background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%);
+            border-radius: 40px;
+            padding: 25px 20px;
+            border: 5px solid rgb(255, 255, 255);
+            box-shadow: rgba(133, 189, 215, 0.88) 0px 30px 30px -20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .heading {
+            text-align: center;
+            font-weight: 900;
+            font-size: 28px;
+            color: rgb(16, 137, 211);
+        }
+
+        .form {
+            width: 80%;
+            margin-top: 20px;
+            padding: 30px;
+        }
+
+        .form .input {
+            width: 100%;
+            background: white;
+            border: none;
+            padding: 15px;
+            border-radius: 20px;
+            margin-top: 15px;
+            box-shadow: #cff0ff 0px 10px 10px -5px;
+            border-inline: 2px solid transparent;
+        }
+
+        .form label {
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .form .input::placeholder {
+            color: rgb(170, 170, 170);
+        }
+
+        .form .input:focus {
+            outline: none;
+            border-inline: 2px solid #12B1D1;
+        }
+
+        .form .login-button {
+            width: 100%;
+            font-weight: bold;
+            background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+            color: white;
+            padding: 15px;
+            margin: 30px 0 10px 0;
+            border-radius: 20px;
+            box-shadow: rgba(133, 189, 215, 0.88) 0px 20px 10px -15px;
+            border: none;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .form .login-button:hover {
+            transform: scale(1.03);
+            box-shadow: rgba(133, 189, 215, 0.88) 0px 23px 10px -20px;
+        }
+
+        .form .login-button:active {
+            transform: scale(0.95);
+            box-shadow: rgba(133, 189, 215, 0.88) 0px 15px 10px -10px;
+        }
+
+        .agreement {
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .agreement a {
+            color: rgb(16, 137, 211);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .agreement a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive design for tablets */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                max-width: 300px;
+            }
+
+            .heading {
+                font-size: 24px;
+            }
+
+            .form {
+                padding: 20px;
+            }
+
+            .form label {
+                font-size: 13px;
+            }
+
+            .form .input {
+                padding: 12px;
+            }
+
+            .form .login-button {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+
+        /* Responsive design for mobile devices */
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+                max-width: 280px;
+            }
+
+            .heading {
+                font-size: 20px;
+            }
+
+            .form {
+                padding: 15px;
+            }
+
+            .form label {
+                font-size: 12px;
+            }
+
+            .form .input {
+                padding: 10px;
+            }
+
+            .form .login-button {
+                padding: 10px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading">Log In</div>
+        <form method="post" class="form">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input required class="input" type="text" name="username" id="username" placeholder="Enter Username">
+
+            <label for="password">Password</label>
+            <input required class="input" type="password" name="pass" id="password" placeholder="Password">
+
+            <input class="login-button" type="submit" value="Submit">
+        </form>
+        <span class="agreement"><a href="{% url 'home' %}">GO BACK</a></span>
+    </div>
+</body>
+
+</html>

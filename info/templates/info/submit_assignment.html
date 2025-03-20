@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Submit Assignment</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <style>
+            /* Background styling */
+            body {
+                background: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2000&q=80') no-repeat center center fixed;
+                background-size: cover;
+                font-family: 'Poppins', sans-serif;
+                color: white;
+                text-align: center;
+                padding: 20px;
+            }
+
+            /* Center the form */
+            .container {
+                max-width: 500px;
+                background: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(15px);
+                border-radius: 15px;
+                padding: 30px;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+                margin: auto;
+                margin-top: 50px;
+            }
+
+            /* Updated h1 styling with a deeper, vibrant gradient */
+            h1 {
+                font-size: 2rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                background: linear-gradient(45deg, #ff6b6b, #ffcc5c);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-shadow: 2px 2px 10px rgba(255, 102, 102, 0.4);
+                margin-bottom: 20px;
+            }
+
+            /* Updated p styling with a softer, elegant color */
+            p {
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: rgba(255, 255, 255, 0.9);
+                text-shadow: 1px 1px 8px rgba(255, 255, 255, 0.2);
+            }
+
+
+            /* Form styling */
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            input,
+            select,
+            textarea {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border-radius: 8px;
+                border: 1px solid rgba(255, 255, 255, 0.5);
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+            }
+
+            input::placeholder,
+            textarea::placeholder {
+                color: rgba(255, 255, 255, 0.7);
+            }
+
+            button {
+                padding: 12px 20px;
+                border-radius: 8px;
+                font-weight: bold;
+                transition: all 0.3s ease-in-out;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                background: #48c774;
+                border: none;
+                color: white;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background: #36a269;
+                transform: scale(1.05);
+            }
+
+            /* Responsive design */
+            @media (max-width: 768px) {
+                .container {
+                    width: 90%;
+                    padding: 20px;
+                }
+
+                h1 {
+                    font-size: 1.8rem;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="container">
+            <h1>📄 Submit Assignment</h1>
+            <p>Assignment: {{ assignment.title }}</p>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,58 @@
+{% extends 'info/base.html' %}
+
+{% block css %}
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+    h2 {
+        color: #343a40;
+        font-weight: bold;
+    }
+    .table {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">📚 Submitted Assignments</h2>
+
+    {% if submissions %}
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>📌 Assignment</th>
+                    <th>👨‍🎓 Student</th>
+                    <th>⏳ Submission Time</th>
+                    <th>📂 Download</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for submission in submissions %}
+                <tr>
+                    <td>{{ submission.assignment.title }}</td>
+                    <td>{{ submission.student.name }}</td>
+                    <td>{{ submission.submitted_at|date:"F j, Y, g:i A" }}</td>
+                    <td>
+                        <a href="{{ submission.file.url }}" class="btn btn-primary btn-sm" download>
+                            ⬇️ Download
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="alert alert-info text-center">
+        No submissions available at the moment.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
