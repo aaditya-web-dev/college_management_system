@@ -19,6 +19,12 @@
       <link href="{% static '/info/homepage/css/heroic-features.css' %}" rel="stylesheet">
           <link href="{% static '/info/bootstrap/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
 
+          <style>
+            .img2{
+              mix-blend-mode: hard-light;
+            }
+          </style>
+
 
 
   </head>
@@ -109,8 +115,8 @@
 
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
-              <a href="{% url 't_timetable' request.user.teacher.id %}">
-                <img class="card-img-top" src="{% static 'info/images/timetable.pngk' %}" alt="">
+              <a href="{% url 'assignment_list'%}">
+                <img class="card-img-top img2" src="{% static 'info/images/ass_create.png' %}" alt="">
               </a>
               <div class="card-body">
               <h4 class="card-title">TimeTable</h4>
@@ -126,8 +132,8 @@
 
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
-              <a href="{% url 't_timetable' request.user.teacher.id %}">
-                <img class="card-img-top" src="{% static 'info/images/timetable.pngk' %}" alt="">
+              <a href="{% url 'submitted_assignments'%}">
+                <img class="card-img-top img2" src="{% static 'info/images/ass_see.png' %}" alt="">
               </a>
               <div class="card-body">
               <h4 class="card-title">TimeTable</h4>
